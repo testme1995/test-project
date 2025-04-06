@@ -15,7 +15,7 @@ Validation matrix
 
 Coordinates and references
 
-![image](https://github.com/user-attachments/assets/d0e69673-9008-4263-bede-49addc03b874)
+![image](https://github.com/user-attachments/assets/620d1805-e12f-470a-8d4c-ab22ce4f4520)
 
 To correctly achieve reconstruction and extraction, we will use the previous scheme as the reference. Indeed, the first slice will contain the origin (0, 0, 0) and will be the front top left slice.
 
@@ -23,13 +23,15 @@ General overview
 
 For 3d reconstruction and virtual slices extraction, Dedale team will integrate the image processing recipe in a gRPC server and iFAST will create a gRPC client that requests this server by providing processing inputs and parameters.
 
-![image](https://github.com/user-attachments/assets/253f8a72-00a8-4a75-a5b7-2eb769f8e934)
+![image](https://github.com/user-attachments/assets/d84fce0f-b11a-46de-b276-8eaf67976ea2)
+
 
 Daedalus team delivery
 
 Daedalus team will deliver the gRPC server and a simplistic gRPC client that illustrates the processing capabilities of the server. The server will be self-contained in a docker image. For both client and server, C++ will be used.
 
-![image](https://github.com/user-attachments/assets/958a1207-65db-4333-acce-dff9ec3e7684)
+![image](https://github.com/user-attachments/assets/e3a906fe-a57b-4ace-84f1-fd46390958fb)
+
 
 On client/server communication
 
@@ -39,7 +41,8 @@ In this scenario, iFast, as the client, initiates the gRPC connection and will s
 
 Once the server has processed one slice, the client could send another slice and continue while the end is not reached. To finish the client should send the last slice with the explicit request to reconstruct and/or extract.
 
-![image](https://github.com/user-attachments/assets/96da49b2-e868-407d-a0c5-06af02dcaa27)
+![image](https://github.com/user-attachments/assets/87d71c1d-85c5-4179-93c7-67a30e0765ce)
+
 
 Notice that the client **is not allowed** to perform a second request before getting a computation completion message from the server.
 
